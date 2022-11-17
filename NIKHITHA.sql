@@ -18,7 +18,8 @@ create table Orders (Order_ID INT primary key, Order_Date Date, Customer_ID int,
   create table Delivery (Delivery_ID int primary key, Delivery_Date DATE, Order_ID int, 
  CONSTRAINT FK_Delivery_Order foreign key(Order_ID) references Orders(Order_ID) );
  GRANT ALL ON SUPPLIER TO ANOUKSHA;
- 
+ ALTER TABLE DELIVERY 
+ ADD DELIVERED_QUANTITY NUMBER;
  select * from delivery;
 
 
