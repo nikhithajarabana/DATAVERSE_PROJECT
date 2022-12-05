@@ -406,11 +406,11 @@ AND (ps.Supplier_ID = s.Supplier_ID);
 Create view stock_update as 
 select p.Product_Id, p.Product_Name,p.Available_quantity,ps.Supplied_Quantity 
 From Product p Inner Join Product_Stock ps On p.Product_Id = ps.Product_Id;
-grant select on supplier_product_details to nikhitha,sahithi,rithvik,manager;
+grant select on supplier_product_details to nikhitha,sahithi,rithvik,manager,supplier;
 grant select on total_productstock_quantity to rithvik,sahithi,nikhitha,manager;
 grant select on Product_Category to rithvik,sahithi,nikhitha,manager;
-grant select on Customer_Order_details to rithvik,sahithi,nikhitha,manager;
-grant select on Supplier_Store_details  to rithvik,sahithi,nikhitha,manager;
+grant select on Customer_Order_details to rithvik,sahithi,nikhitha,manager,customer;
+grant select on Supplier_Store_details  to rithvik,sahithi,nikhitha,manager,supplier;
 grant select on stock_update  to rithvik,sahithi,nikhitha,manager;
 commit;
 
