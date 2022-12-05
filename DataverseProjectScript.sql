@@ -197,6 +197,24 @@ BEGIN
             END IF;
     END;
 /
+BEGIN
+        EXECUTE IMMEDIATE 'drop procedure Add_Customer';
+    EXCEPTION
+        WHEN OTHERS THEN
+            if sqlcode != -942 THEN
+                RAISE;
+            END IF;
+    END;
+/
+BEGIN
+        EXECUTE IMMEDIATE 'drop procedure Add_Product';
+    EXCEPTION
+        WHEN OTHERS THEN
+            if sqlcode != -942 THEN
+                RAISE;
+            END IF;
+    END;
+/
 create table admin (username varchar(20) primary key, password varchar(30));
 
 create table store (store_id INT primary key, store_contactnumber INT, store_email varchar(30), store_address varchar(30), store_location varchar(100) );
@@ -413,6 +431,40 @@ grant select on Customer_Order_details to rithvik,sahithi,nikhitha,manager,custo
 grant select on Supplier_Store_details  to rithvik,sahithi,nikhitha,manager,supplier;
 grant select on stock_update  to rithvik,sahithi,nikhitha,manager;
 commit;
+CREATE OR REPLACE PROCEDURE Add_Customer IS
+    Customer_num number(10);
+    name varchar2(20);
+BEGIN
+        Customer_num := 21;	
+        name := 'Lisa';	
+        INSERT INTO anouksha.customer (Customer_ID, Customer_Name) VALUES (Customer_num, name);
+       DBMS_OUTPUT.PUT_LINE ('New Customer inserted');
+END;
+/
 
+
+BEGIN
+Add_Customer();
+
+END;
+/
+grant execute on add_customer to anouksha,rithvik,sahithi;
+
+
+CREATE OR REPLACE PROCEDURE Add_Product IS
+    product_num number(10);
+    name varchar2(20);
+BEGIN
+        Product_num := 11;	
+        name := 'Pantene';	
+        INSERT INTO anouksha.product (product_ID, Product_Name) VALUES (product_num, name);
+       DBMS_OUTPUT.PUT_LINE ('New Product inserted');
+END;
+/
+BEGIN
+Add_Product();
+END;
+/
+grant execute on add_product to anouksha,rithvik,sahithi;
 
 
