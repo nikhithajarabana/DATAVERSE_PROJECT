@@ -45,9 +45,7 @@ Add_Product();
 END;
 /
 commit;
-select * from anouksha.customer;
-desc anouksha.product;
-exec inventorypackage.add_customer();
+
 grant execute on add_customer to rithvik,sahithi,anouksha;
 grant execute on add_product to rithvik,sahithi,anouksha;
 commit;
