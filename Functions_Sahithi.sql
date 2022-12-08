@@ -1,24 +1,26 @@
-
-CREATE OR REPLACE FUNCTION CustomerReturn RETURN NUMBER IS 
-    c_id number := 0;
+CREATE OR REPLACE FUNCTION CustomerReturn(Cust_Name IN Varchar2) RETURN Number IS 
+    c_id number(10);
 BEGIN 
- select Customer_ID into c_id FROM anouksha.customer WHERE Customer_Name='Priya';
+ select Customer_ID into c_id FROM anouksha.customer WHERE Customer_Name= Cust_Name;
   return c_id;
 END;
 /
 
-select CustomerReturn from dual;
-
-CREATE OR REPLACE FUNCTION ProductReturn RETURN NUMBER IS 
-    p_id number := 0;
+select CustomerReturn('Priya') from dual;
+commit;
+CREATE OR REPLACE FUNCTION ProductReturn(Pro_Name IN varchar2) RETURN NUMBER IS 
+    p_id number(10);
 BEGIN 
- select Product_ID into p_id FROM anouksha.product WHERE Product_Name='Whole Wheat Bread';
+ select Product_ID into p_id FROM product WHERE Product_Name= Pro_Name;
   return p_id;
 END;
 /
 
-select ProductReturn from dual;
-
+select ProductReturn('Whole Wheat Bread') from dual;
+commit;
+grant execute on productreturn to nikhitha,anouksha,rithvik,manager;
+grant execute on customerreturn to nikhitha,anouksha,rithvik,manager;
+commit;
 
 
 
