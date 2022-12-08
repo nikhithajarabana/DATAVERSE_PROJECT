@@ -34,13 +34,28 @@ commit;
 GRANT SELECT ON ANOUKSHA.ORDERS TO CUSTOMER;
 GRANT SELECT ON ANOUKSHA.PRODUCT TO CUSTOMER;
 
+
+COMMIT;
+grant select on category to customer;
+
+
+
 GRANT SELECT ON  ANOUKSHA.ORDERLIST  TO  Supplier;
 GRANT SELECT, INSERT, UPDATE ON ANOUKSHA.DELIVERY TO SUPPLIER;
 commit;
+grant select on order_details to sahithi,nikhitha,rithvik,anouksha,manager;
+grant select on product_quantity_details to sahithi,nikhitha,rithvik,anouksha,manager;
+grant select on supplier_product_details to nikhitha,sahithi,rithvik,manager,supplier;
+grant select on total_productstock_quantity to rithvik,sahithi,nikhitha,manager;
+grant select on Product_Category to rithvik,sahithi,nikhitha,manager;
+grant select on Customer_Order_details to rithvik,sahithi,nikhitha,manager,customer;
+grant select on Supplier_Store_details  to rithvik,sahithi,nikhitha,manager,supplier;
+grant select on stock_update  to rithvik,sahithi,nikhitha,manager;
+
 grant create procedure to nikhitha,sahithi,rithvik,anouksha;
-grant execute on add_category to sahithi,rithvik,anouksha,manager;
-grant execute on add_Customer to sahithi,rithvik,anouksha,manager;
-grant execute on add_customer to anouksha,rithvik,sahithi,manager;
-grant execute on LOWSTOCK to sahithi,nikhitha,rithvik,anouksha,manager;
-grant execute on productreturn to nikhitha,sahithi,rithvik,manager;
-grant execute on customerreturn to nikhitha,sahithi,rithvik,manager;
+grant execute on add_category to sahithi,rithvik,anouksha;
+grant execute on add_Customer to sahithi,rithvik,anouksha;
+grant execute on add_customer to anouksha,rithvik,sahithi;
+grant execute on LOWSTOCK to sahithi,nikhitha,rithvik,anouksha;
+grant execute on productreturn to nikhitha,sahithi,rithvik;
+grant execute on customerreturn to nikhitha,sahithi,rithvik;
